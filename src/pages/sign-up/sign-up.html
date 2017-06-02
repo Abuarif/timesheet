@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="signup()" [formGroup]="loginFormControl">
+    <ion-list inset>
+      <ion-item>
+        <ion-label>Full Name :</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Staff Number :</ion-label>
+        <ion-input type="number" formControlName="staffNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email Address :</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <!--<p *ngIf="!email.valid && email.touched" danger>Username is empty</p>-->
+      <ion-item *ngIf="!loginFormControl.controls.email.valid  && submitAttempt">
+        <p>Please enter a valid email address.</p>
+      </ion-item>
+      <br>
+      <br>
+      <button type="submit" ion-button color="primary" full round>
+        <ion-icon name="book"></ion-icon>&nbsp;&nbsp;Sign Up
+      </button>
+    </ion-list>
+  </form>
+
+</ion-content>

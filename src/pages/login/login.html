@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Log In</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="login()" [formGroup]="loginFormControl">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 col-xl-3 offset-xl-3>
+          <ion-list>
+            <ion-item>
+              <ion-label>Username :</ion-label>
+              <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+            <!--<p *ngIf="!email.valid && email.touched" danger>Username is empty</p>-->
+            <ion-item *ngIf="!loginFormControl.controls.email.valid  && submitAttempt">
+              <p>Please enter a valid email address.</p>
+            </ion-item>
+            <ion-item>
+              <ion-label>Password :</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            <br>
+            <br>
+            <button type="submit" ion-button color="primary" full round><ion-icon name="log-in"></ion-icon>&nbsp;&nbsp;Log In</button>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>

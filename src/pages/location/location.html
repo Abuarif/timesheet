@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Location
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map id="map" *ngIf="!nativeDevice"> </div>
+  <div *ngIf="!nativeDevice">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-50>
+          <button ion-button full round color="light" (click)="initMap()">
+          <ion-icon name="locate"> Locate</ion-icon>
+        </button>
+        </ion-col>
+        <ion-col width-50>
+          <button ion-button full round color="secondary" [disabled]="!active" *ngIf="canCheckIn()" (click)="submitNonNativeData()">
+          <ion-icon name="clock"> Check In</ion-icon> 
+        </button>
+          <button ion-button full round color="danger" *ngIf="canCheckOut()" (click)="submitNonNativeData()">
+          <ion-icon name="clock"> Check Out</ion-icon>
+        </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="nativeDevice">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="book"></ion-icon>&nbsp;&nbsp;{{locationTracker.address}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="pin"></ion-icon>&nbsp;&nbsp;( {{locationTracker.lat}}, {{locationTracker.lng}} )
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="time"></ion-icon>&nbsp;&nbsp;{{ locationTracker.timestamp | date:'dd/MM/yyyy @ h:mm:ss a' }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-50>
+        <button ion-button full round color="primary" (click)="start()">
+        <ion-icon name="locate"> </ion-icon>&nbsp;&nbsp;Locate
+      </button>
+      </ion-col>
+      <ion-col width-50>
+        <button ion-button full round color="secondary" [disabled]="!active" *ngIf="canCheckIn()" (click)="submitNativeData()">
+          <ion-icon name="clock"> Check In</ion-icon> 
+        </button>
+        <button ion-button full round color="danger" *ngIf="canCheckOut()" (click)="submitNativeData()">
+          <ion-icon name="clock"> Check Out</ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Announcement</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-list-header>Today</ion-list-header>
+
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/image/prasarana.png">
+        </ion-avatar>
+        <h2>Woody</h2>
+        <p>This town ain't big enough for the two of us!</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" icon-left (click)="getDetail()">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+        <button ion-button color="secondary" icon-left (click)="getDetail()">
+          <ion-icon name="email"></ion-icon>
+          Email
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list>
+
+    <ion-list-header>Yesterday</ion-list-header>
+
+    <ion-item-sliding>
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/image/prasarana.png">
+        </ion-avatar>
+        <h2>Hamm</h2>
+        <p>You heard of Kung Fu? Well get ready for pork chop.</p>
+        <ion-note item-end>11:11 pm</ion-note>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" icon-left (click)="getDetail()">
+          <ion-icon name="ios-more"></ion-icon>
+          More
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+</ion-content>
